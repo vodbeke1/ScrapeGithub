@@ -1,3 +1,4 @@
 beautifulsoup4==4.8.0
 pandas==0.23.4
 requests==2.22.0
+
