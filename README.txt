@@ -1,3 +1,7 @@
+Build image:
+
+$ docker build .
+
 From work directory run this bash command:
 
 $ docker run -it python
