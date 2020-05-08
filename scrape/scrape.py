@@ -22,9 +22,7 @@ def getInfo(url, dump_filepath):
 
         # Sleep 1 second so the website is not bombed by requests
         time.sleep(1)
-        
         start_page += 1
-        
         page = BeautifulSoup(r.text, "html.parser")
         repo_list= page.find('div', attrs={'class': 'org-repos repo-list'})
 
@@ -37,7 +35,6 @@ def getInfo(url, dump_filepath):
             break
 
         for r in repo_list:
-            
               
             repo_url = r.find('a', attrs={'class': 'd-inline-block', 'itemprop': 'name codeRepository'})['href'].split('/')[2]
             cache["url"].append(url+'/'+repo_url)
@@ -61,18 +58,9 @@ def getInfo(url, dump_filepath):
             else:
                 cache["tags"].append([None])
 
-
-    
-
     return pd.DataFrame(cache).to_csv(dump_filepath)
  
-        
-    
-
-
-
 
 if __name__ == "__main__":
     url ='https://github.com/github'
-    #print(getInfo(url).head(10))
     getInfo(url, 'scrape/data/repositories.csv')
