@@ -2,6 +2,7 @@
 import os
 import time
 import logging
+logging.basicConfig(level=logging.INFO)
 from datetime import timedelta
 # The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
